@@ -6,6 +6,7 @@ import FilosofiaDocente from './components/FilosofiaDocente'
 import FormacionProfesional from './components/FormacionProfesional'
 import Prl from './components/Prl'
 import CompetenciasDigitales from './components/CompetenciasDigitales'
+import Testimonios from './components/Testimonios'
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <FormacionProfesional />
       <Prl />
       <CompetenciasDigitales />
+      <Testimonios />
       
     </main>
   )
