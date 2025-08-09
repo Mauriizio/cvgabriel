@@ -32,33 +32,53 @@ export default function SobreMi() {
   return (
     <section
       id="sobre-mi"
-      className="bg-white min-h-screen flex items-center px-4 sm:px-8 md:px-20 py-12 sm:py-16 relative overflow-hidden"
       aria-labelledby="sobre-mi-title"
+      className="relative bg-gray-50 py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
     >
-      {/* Fondos decorativos */}
+      {/* Fondos decorativos + cuadriculado sutil (mantengo tu visual) */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-12 -left-12 w-52 h-52 bg-blue-100 rounded-full blur-3xl opacity-20"></div>
-        <div className="absolute -bottom-16 -right-16 w-72 h-72 bg-indigo-100 rounded-full blur-3xl opacity-20"></div>
+        <svg
+          className="absolute inset-0 w-full h-full opacity-6"
+          preserveAspectRatio="none"
+          aria-hidden
+        >
+          <defs>
+            <pattern id="grid-pattern-2" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M40 0 L0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.4" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid-pattern-2)" className="text-slate-400" />
+        </svg>
+
+        <div className="absolute -top-12 -left-12 w-52 h-52 bg-blue-100 rounded-full blur-3xl opacity-20" />
+        <div className="absolute -bottom-16 -right-16 w-72 h-72 bg-indigo-100 rounded-full blur-3xl opacity-20" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 w-full">
-        {/* Título */}
+      {/* Contenedor interior — igual que Bienvenidos */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-indigo-700 bg-indigo-50">
+          Acerca de mí
+        </p>
+
+        {/* Título principal */}
         <h2
           id="sobre-mi-title"
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4"
+          className="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight"
         >
-          Sobre <span className="text-blue-700">Gabriel Acacio Hernández Zambrano</span>
+          Sobre <span className="text-indigo-600">Gabriel Acacio Hernández Zambrano</span>
         </h2>
-        <p className="text-center text-gray-700 max-w-3xl mx-auto mb-10 text-base sm:text-lg">
+
+        <p className="mt-4 text-gray-700 leading-relaxed max-w-3xl">
           Experto en Formación Profesional, Prevención de Riesgos Laborales, Trabajo Social y Competencias Digitales.
         </p>
 
-        {/* Grid de especialidades */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+        {/* Grid de especialidades — ajuste de gap para igualar densidad */}
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {especialidades.map((area, idx) => (
-            <div
+            <article
               key={idx}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col h-full"
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow transform hover:-translate-y-1 duration-200 flex flex-col h-full"
+              aria-labelledby={`area-${idx}`}
             >
               {/* Imagen */}
               <div className="relative w-full h-48">
@@ -73,14 +93,12 @@ export default function SobreMi() {
 
               {/* Contenido */}
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                <h3 id={`area-${idx}`} className="text-xl font-bold text-gray-900 mb-3 tracking-tight">
                   {area.title}
                 </h3>
-                <p className="text-gray-700 text-sm flex-grow">
-                  {area.description}
-                </p>
+                <p className="text-gray-700 text-sm flex-grow">{area.description}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

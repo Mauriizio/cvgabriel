@@ -48,24 +48,29 @@ export default function FormacionProfesional() {
         <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-indigo-100 rounded-full blur-3xl opacity-20"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative z-10">
+      {/* CONTENEDOR INTERIOR — mismo padding horizontal que en las otras secciones */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-center relative z-10">
         {/* Texto */}
         <div className="space-y-6 order-last md:order-first">
+          <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-indigo-700 bg-indigo-50">
+            Preparación profesional de Calidad
+          </p>
+
           <h2
             id="formacion-profesional-title"
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900"
+            className="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight"
           >
             Formación Profesional:{" "}
-            <span className="text-blue-700">Preparación para el Mundo Real</span>
+            <span className="text-indigo-600">Preparación para el Mundo Real</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl">
             Diseño programas formativos que responden directamente a las demandas
             actuales del mercado laboral, combinando habilidades técnicas específicas
             con competencias transversales esenciales para la empleabilidad.
           </p>
 
-          <ul className="space-y-3">
+          <ul className="space-y-3 max-w-3xl">
             <li className="flex items-start gap-3">
               <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm">
                 ✓
@@ -80,7 +85,7 @@ export default function FormacionProfesional() {
             </li>
           </ul>
 
-          <div>
+          <div className="mt-6 text-center md:text-left">
             <a
               href="#contacto"
               className="inline-block bg-blue-700 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-transform transform hover:scale-105 shadow"
@@ -91,7 +96,7 @@ export default function FormacionProfesional() {
         </div>
 
         {/* Carrusel de imágenes */}
-        <figure className="relative w-full h-64 sm:h-80 md:h-[420px] rounded-xl overflow-hidden shadow-lg order-first md:order-last">
+        <figure className="relative w-full h-64 sm:h-80 md:h-[420px] rounded-2xl overflow-hidden shadow-lg order-first md:order-last">
           {slides.map((slide, index) => (
             <div
               key={index}

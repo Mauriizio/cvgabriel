@@ -1,81 +1,144 @@
-// app/components/FilosofiaDocente.tsx
-import { LightBulbIcon, AcademicCapIcon, DevicePhoneMobileIcon, HeartIcon } from "@heroicons/react/24/outline";
+// src/app/components/FilosofiaDocente.tsx
+import {
+  LightBulbIcon,
+  AcademicCapIcon,
+  DevicePhoneMobileIcon,
+  HeartIcon,
+  ArrowTopRightOnSquareIcon,
+} from "@heroicons/react/24/outline";
 
 export default function FilosofiaDocente() {
   const principios = [
     {
+      id: "practica",
       title: "Educación Práctica",
       description:
-        "Desarrollo de formación contextualizada que conecta teoría con la realidad laboral, permitiendo aplicación inmediata de conocimientos en situaciones reales.",
+        "Formación contextualizada que conecta teoría con la realidad laboral, permitiendo aplicación inmediata en situaciones reales.",
       icon: AcademicCapIcon,
+      accent: "from-indigo-600 to-indigo-400",
     },
     {
+      id: "critico",
       title: "Pensamiento Crítico",
       description:
-        "Fomento del análisis crítico, la responsabilidad social y la innovación digital como pilares fundamentales para profesionales adaptables y éticos.",
+        "Fomento del análisis crítico, responsabilidad social e innovación digital como pilares para profesionales adaptables y éticos.",
       icon: LightBulbIcon,
+      accent: "from-amber-500 to-amber-400",
     },
     {
+      id: "adaptacion",
       title: "Adaptación Tecnológica",
       description:
-        "Integración constante de nuevas tecnologías y metodologías educativas que preparan para los cambios del mercado laboral actual.",
+        "Integración constante de nuevas tecnologías y metodologías educativas que preparan a los estudiantes para el mercado laboral actual.",
       icon: DevicePhoneMobileIcon,
+      accent: "from-sky-500 to-cyan-400",
     },
     {
+      id: "humanista",
       title: "Enfoque Humanista",
       description:
-        "Priorización del bienestar y desarrollo integral del estudiante, reconociendo las particularidades individuales en el proceso de aprendizaje.",
+        "Priorización del bienestar y desarrollo integral del estudiante, reconociendo las particularidades individuales en el aprendizaje.",
       icon: HeartIcon,
+      accent: "from-rose-500 to-pink-400",
     },
   ];
 
   return (
     <section
       id="filosofia-docente"
-      className="bg-gray-50 min-h-screen flex items-center px-4 sm:px-8 md:px-20 py-12 sm:py-16 relative overflow-hidden"
       aria-labelledby="filosofia-title"
+      className="relative bg-gray-50 py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
     >
-      {/* Fondos decorativos sutiles */}
+      {/* fondos decorativos coherentes */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-20"></div>
-        <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-indigo-100 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute -top-10 -left-12 w-44 h-44 bg-indigo-50 rounded-full blur-3xl opacity-30"></div>
+        <div className="absolute -bottom-12 -right-10 w-72 h-72 bg-blue-50 rounded-3xl blur-3xl opacity-20"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 w-full">
-        {/* Título */}
-        <h2
-          id="filosofia-title"
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4"
-        >
-          Mi Filosofía Docente:{" "}
-          <span className="text-blue-700">Aprender para Transformar</span>
-        </h2>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+          {/* Columna izquierda: título + intro + CTA */}
+          <div className="md:col-span-1">
+            <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-indigo-700 bg-indigo-50">
+              Filosofía Docente
+            </p>
 
-        <p className="text-center text-gray-700 max-w-3xl mx-auto mb-10 text-base sm:text-lg">
-          Un enfoque educativo integral que combina rigor académico, tecnología y compromiso humano.
-        </p>
-
-        {/* Grid de principios */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {principios.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-xl shadow-lg p-6 flex flex-col sm:flex-row items-start gap-4 hover:shadow-xl transition-shadow"
+            <h2
+              id="filosofia-title"
+              className="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight"
             >
-              {/* Ícono */}
-              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-blue-700">
-                <item.icon className="w-6 h-6" />
-              </div>
+              Mi Filosofía: <span className="text-indigo-600">Aprender para Transformar</span>
+            </h2>
 
-              {/* Texto */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-gray-700 text-sm">{item.description}</p>
-              </div>
+            <p className="mt-4 text-gray-700 leading-relaxed">
+              Un enfoque integral que combina rigor académico, herramientas digitales y cuidado humano para formar profesionales competentes y responsables.
+            </p>
+
+            <div className="mt-6 text-center md:text-left">
+              <a
+                href="#contacto"
+                className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-transform transform hover:scale-105 shadow"
+              >
+                Consultar propuesta docente
+              </a>
+              <br />
+              <a
+                href="#metodologia"
+                className="inline-block ml-3 mt-3 md:mt-0 text-indigo-600 hover:underline font-medium"
+              >
+                Ver metodología
+              </a>
             </div>
-          ))}
+          </div>
+
+          {/* Columna derecha: tarjetas de principios */}
+          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {principios.map((p, idx) => {
+              const Icon = p.icon;
+              return (
+                <article
+                  key={p.id}
+                  id={`principio-${p.id}`}
+                  role="article"
+                  tabIndex={0}
+                  aria-labelledby={`principio-title-${p.id}`}
+                  className="relative group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-transform duration-300 transform hover:-translate-y-2 focus-within:shadow-xl focus-within:-translate-y-2 ring-0 focus:outline-none overflow-visible"
+                >
+                  {/* badge numerado (aseguro z-index para que no se oculte) */}
+                  <div className="absolute -top-3 -left-3 text-xs text-white font-semibold px-3 py-1 rounded-full bg-indigo-600/90 z-20">
+                    {idx + 1}
+                  </div>
+
+                  {/* icono con gradiente — tamaño seguro en móvil, z-index y ring sutil */}
+                  <div
+                    className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-tr ${p.accent} text-white z-10 ring-1 ring-white/20`}
+                    aria-hidden
+                  >
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                  </div>
+
+                  <h3 id={`principio-title-${p.id}`} className="text-lg font-semibold text-gray-900 mb-2">
+                    {p.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-600 leading-relaxed mb-4">{p.description}</p>
+
+                  <div className="mt-auto flex items-center gap-3">
+                    <a
+                      href={`#${p.id}`}
+                      className="text-sm font-medium text-indigo-600 hover:text-indigo-700 inline-flex items-center gap-2"
+                      aria-label={`Más sobre ${p.title}`}
+                    >
+                      Más información
+                      <ArrowTopRightOnSquareIcon className="w-4 h-4" />
+                    </a>
+
+                    <span className="ml-auto text-xs text-gray-400">Formación aplicada</span>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
