@@ -1,5 +1,7 @@
 // src/app/components/Testimonios.tsx
 import Image from "next/image";
+import { StarIcon as StarSolid } from "@heroicons/react/24/solid";
+import { StarIcon as StarOutline } from "@heroicons/react/24/outline";
 
 type Testimonio = {
   id: string;
@@ -38,7 +40,6 @@ const testimonios: Testimonio[] = [
     foto: "/img/pic (9).jpg",
     rating: 5,
   },
-
   {
     id: "t4",
     nombre: "Maurizio Caballero",
@@ -51,7 +52,7 @@ const testimonios: Testimonio[] = [
 ];
 
 export default function Testimonios() {
-  const ratingValues = testimonios.map(t => t.rating ?? 5);
+  const ratingValues = testimonios.map((t) => t.rating ?? 5);
   const aggregateRating =
     ratingValues.reduce((a, b) => a + b, 0) / ratingValues.length;
 
@@ -59,13 +60,12 @@ export default function Testimonios() {
     <section
       id="testimonios"
       aria-labelledby="testimonios-title"
-      className="relative bg-white py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
+      className="relative bg-gray-50 py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
     >
       {/* Fondos decorativos coherentes */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-10 -left-10 w-48 h-48 bg-indigo-50 rounded-full blur-3xl opacity-30"></div>
         <div className="absolute -bottom-12 -right-10 w-72 h-72 bg-blue-50 rounded-3xl blur-3xl opacity-20"></div>
-
         <svg
           className="bg-grid-pattern absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
           preserveAspectRatio="none"
@@ -104,13 +104,13 @@ export default function Testimonios() {
               {aggregateRating.toFixed(1)}★
             </div>
             <div className="text-xs text-gray-600">
-              Satisfacción promedio<br/>basada en {testimonios.length} opiniones
+              Satisfacción promedio<br />basada en {testimonios.length} opiniones
             </div>
           </div>
         </div>
 
-        {/* Grid de testimonios */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Grid de testimonios: 1, luego 2 y 2 (escritorio) */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
           {testimonios.map((t) => (
             <article
               key={t.id}
@@ -141,17 +141,18 @@ export default function Testimonios() {
               </blockquote>
 
               {/* Estrellas */}
-              <div className="mt-4 flex items-center gap-1" aria-label={`Calificación ${t.rating ?? 5} de 5`}>
-                {Array.from({ length: 5 }).map((_, i) => {
-                  const filled = i < (t.rating ?? 5);
-                  return (
-                    <span
-                      key={i}
-                      className={`inline-block w-4 h-4 rounded-[3px] ${filled ? "bg-yellow-400" : "bg-gray-200"}`}
-                    />
-                  );
-                })}
-                <span className="ml-2 text-xs text-gray-500">{t.rating ?? 5}.0</span>
+              <div
+                className="mt-4 flex items-center gap-1"
+                aria-label={`Calificación ${t.rating ?? 5} de 5`}
+              >
+                {Array.from({ length: 5 }).map((_, i) =>
+                  i < (t.rating ?? 5) ? (
+                    <StarSolid key={i} className="w-4 h-4 text-yellow-400" />
+                  ) : (
+                    <StarOutline key={i} className="w-4 h-4 text-gray-300" />
+                  )
+                )}
+                <span className="ml-2 text-xs text-gray-500">{(t.rating ?? 5).toFixed(1)}</span>
               </div>
             </article>
           ))}
@@ -159,9 +160,8 @@ export default function Testimonios() {
       </div>
 
       {/* JSON-LD mínimo para SEO de reseñas */}
-      <script
+      {/* <script
         type="application/ld+json"
-        // Nota: para producción, mueve este JSON-LD a layout o a un componente Head
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -180,7 +180,7 @@ export default function Testimonios() {
             })),
           }),
         }}
-      />
+      /> */}
     </section>
   );
 }

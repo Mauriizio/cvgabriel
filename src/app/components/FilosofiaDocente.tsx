@@ -23,7 +23,7 @@ export default function FilosofiaDocente() {
       description:
         "Fomento del análisis crítico, responsabilidad social e innovación digital como pilares para profesionales adaptables y éticos.",
       icon: LightBulbIcon,
-      accent: "from-amber-500 to-amber-400",
+      accent: "from-indigo-600 to-indigo-400",
     },
     {
       id: "adaptacion",
@@ -31,7 +31,7 @@ export default function FilosofiaDocente() {
       description:
         "Integración constante de nuevas tecnologías y metodologías educativas que preparan a los estudiantes para el mercado laboral actual.",
       icon: DevicePhoneMobileIcon,
-      accent: "from-sky-500 to-cyan-400",
+      accent: "from-indigo-600 to-indigo-400",
     },
     {
       id: "humanista",
@@ -39,7 +39,7 @@ export default function FilosofiaDocente() {
       description:
         "Priorización del bienestar y desarrollo integral del estudiante, reconociendo las particularidades individuales en el aprendizaje.",
       icon: HeartIcon,
-      accent: "from-rose-500 to-pink-400",
+      accent: "from-indigo-600 to-indigo-400",
     },
   ];
 
@@ -47,12 +47,25 @@ export default function FilosofiaDocente() {
     <section
       id="filosofia-docente"
       aria-labelledby="filosofia-title"
-      className="relative bg-gray-50 py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
+      className="relative bg-white py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
     >
-      {/* fondos decorativos coherentes */}
+      {/* Fondos decorativos + rejilla sutil */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-10 -left-12 w-44 h-44 bg-indigo-50 rounded-full blur-3xl opacity-30"></div>
         <div className="absolute -bottom-12 -right-10 w-72 h-72 bg-blue-50 rounded-3xl blur-3xl opacity-20"></div>
+
+        <svg
+          className="absolute inset-0 w-full h-full opacity-10"
+          preserveAspectRatio="none"
+          aria-hidden
+        >
+          <defs>
+            <pattern id="grid-filo" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M40 0 L0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.4" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid-filo)" className="text-slate-400" />
+        </svg>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
@@ -74,17 +87,16 @@ export default function FilosofiaDocente() {
               Un enfoque integral que combina rigor académico, herramientas digitales y cuidado humano para formar profesionales competentes y responsables.
             </p>
 
-            <div className="mt-6 text-center md:text-left">
+            <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:gap-4">
               <a
                 href="#contacto"
-                className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-transform transform hover:scale-105 shadow"
+                className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-transform transform hover:-translate-y-0.5 shadow"
               >
                 Consultar propuesta docente
               </a>
-              <br />
               <a
                 href="#metodologia"
-                className="inline-block ml-3 mt-3 md:mt-0 text-indigo-600 hover:underline font-medium"
+                className="mt-3 sm:mt-0 inline-flex items-center justify-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium hover:underline"
               >
                 Ver metodología
               </a>
@@ -104,12 +116,12 @@ export default function FilosofiaDocente() {
                   aria-labelledby={`principio-title-${p.id}`}
                   className="relative group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-transform duration-300 transform hover:-translate-y-2 focus-within:shadow-xl focus-within:-translate-y-2 ring-0 focus:outline-none overflow-visible"
                 >
-                  {/* badge numerado (aseguro z-index para que no se oculte) */}
+                  {/* badge numerado */}
                   <div className="absolute -top-3 -left-3 text-xs text-white font-semibold px-3 py-1 rounded-full bg-indigo-600/90 z-20">
                     {idx + 1}
                   </div>
 
-                  {/* icono con gradiente — tamaño seguro en móvil, z-index y ring sutil */}
+                  {/* icono con gradiente (consistente con Servicios/Bienvenidos) */}
                   <div
                     className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 bg-gradient-to-tr ${p.accent} text-white z-10 ring-1 ring-white/20`}
                     aria-hidden

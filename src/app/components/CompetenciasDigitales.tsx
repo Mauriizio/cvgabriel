@@ -23,7 +23,7 @@ export default function CompetenciasDigitales() {
       desc:
         "Desarrollo de competencias para el uso ético, seguro y eficiente de las tecnologías de la información, protegiendo datos personales y organizacionales en entornos digitales.",
       icon: LockClosedIcon,
-      accent: "from-amber-500 to-amber-400",
+      accent: "from-indigo-600 to-indigo-400",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ export default function CompetenciasDigitales() {
       desc:
         "Incorporación efectiva de herramientas digitales para la enseñanza y el trabajo colaborativo, maximizando la productividad y facilitando la comunicación en equipos presenciales y remotos.",
       icon: UserGroupIcon,
-      accent: "from-sky-500 to-cyan-400",
+      accent: "from-indigo-600 to-indigo-400",
     },
     {
       id: 4,
@@ -39,7 +39,7 @@ export default function CompetenciasDigitales() {
       desc:
         "Capacitación especializada para los retos de la Industria 4.0 y el trabajo remoto post-pandemia, adaptando competencias profesionales a las nuevas demandas laborales.",
       icon: Cog6ToothIcon,
-      accent: "from-rose-500 to-pink-400",
+      accent: "from-indigo-600 to-indigo-400",
     },
   ];
 
@@ -47,16 +47,14 @@ export default function CompetenciasDigitales() {
     <section
       id="competencias-digitales"
       aria-labelledby="competencias-digitales-title"
-      className="relative bg-gray-50 py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
+      className="relative bg-white py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
     >
-      {/* Fondos decorativos coherentes */}
+      {/* Fondos decorativos + cuadrícula sutil */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-6 -left-8 w-44 h-44 bg-indigo-50 rounded-full blur-3xl opacity-30"></div>
         <div className="absolute -bottom-8 -right-6 w-72 h-72 bg-blue-50 rounded-full blur-3xl opacity-20"></div>
-
-        {/* patrón cuadriculado (marca con .bg-grid-pattern si usas la regla mobile específica) */}
         <svg
-          className="bg-grid-pattern absolute inset-0 w-full h-full opacity-6 pointer-events-none"
+          className="absolute inset-0 w-full h-full opacity-[0.06]"
           preserveAspectRatio="none"
           aria-hidden
         >
@@ -72,7 +70,7 @@ export default function CompetenciasDigitales() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Columna izquierda: badge + título + descripción + lista */}
-          <div className="space-y-6">
+          <div>
             <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-indigo-700 bg-indigo-50">
               Competencias Digitales
             </p>
@@ -85,28 +83,26 @@ export default function CompetenciasDigitales() {
               <span className="text-indigo-600">para la Era Tecnológica</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl">
+            <p className="mt-4 text-gray-700 leading-relaxed max-w-3xl">
               Programas formativos diseñados para integrar tecnología, ética y colaboración en la práctica profesional. Desde alfabetización digital hasta preparación para los desafíos de la Industria 4.0.
             </p>
 
-            <ul className="space-y-5" role="list" aria-label="Lista de competencias digitales">
+            <ul className="mt-6 space-y-5" role="list" aria-label="Lista de competencias digitales">
               {items.map((it) => {
                 const Icon = it.icon;
                 return (
                   <li key={it.id} className="flex gap-4 items-start">
                     <div
-                      className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-0 bg-gradient-to-tr ${it.accent} text-white z-10 ring-1 ring-white/20`}
+                      className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-gradient-to-tr ${it.accent} text-white ring-1 ring-white/20`}
                       aria-hidden="true"
                     >
                       <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
 
                     <div className="flex-1">
-                      <div className="flex items-center gap-3">
-                        <h3 className="text-lg font-semibold text-gray-900 leading-snug">
-                          {it.title}
-                        </h3>
-                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 leading-snug">
+                        {it.title}
+                      </h3>
                       <p className="mt-1 text-sm text-gray-600 leading-relaxed">{it.desc}</p>
                     </div>
                   </li>
@@ -114,10 +110,11 @@ export default function CompetenciasDigitales() {
               })}
             </ul>
 
-            <div className="mt-6 text-center md:text-left">
+            {/* CTA: centrado en mobile, izquierda desde sm */}
+            <div className="mt-6 text-center sm:text-left">
               <a
                 href="#contacto"
-                className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-transform transform hover:scale-105 shadow"
+                className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-transform hover:-translate-y-0.5 shadow"
               >
                 Consultar cursos y capacitaciones
               </a>

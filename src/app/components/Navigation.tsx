@@ -25,7 +25,7 @@ export default function Navigation() {
                 src="/img/logo.png"
                 alt="Logo Gabriel Hernández"
                 fill
-                className="object-contain"
+                className="object-cover rounded-full h-10 w-10"
                 priority
               />
             </div>

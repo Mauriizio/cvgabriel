@@ -22,7 +22,7 @@ export default function Prl() {
       desc:
         "Estrategias para identificar, evaluar y controlar riesgos, con metodologías aplicables a industrias y servicios diversos.",
       icon: ExclamationTriangleIcon,
-      accent: "from-emerald-500 to-emerald-400",
+      accent: "from-indigo-600 to-indigo-400",
     },
     {
       id: "cultura",
@@ -30,7 +30,7 @@ export default function Prl() {
       desc:
         "Impulsamos una cultura organizacional que reduce accidentes y mejora el bienestar y productividad mediante participación activa.",
       icon: UsersIcon,
-      accent: "from-sky-500 to-cyan-400",
+      accent: "from-indigo-600 to-indigo-400",
     },
   ];
 
@@ -38,16 +38,14 @@ export default function Prl() {
     <section
       id="prl"
       aria-labelledby="prl-title"
-      className="relative bg-white py-12 sm:py-20 lg:py-28 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
+      className="relative bg-gray-50 py-12 sm:py-20 lg:py-28 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
     >
-      {/* Decorativos de fondo (coherentes con el resto) */}
+      {/* Fondo decorativo + cuadrícula */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-12 -left-10 w-52 h-52 bg-indigo-50 rounded-full blur-3xl opacity-30"></div>
         <div className="absolute -bottom-16 -right-12 w-80 h-80 bg-blue-50 rounded-full blur-3xl opacity-20"></div>
-
-        {/* Si usas el patrón cuadriculado, marca con la clase bg-grid-pattern para que las reglas móviles no lo oculten */}
         <svg
-          className="bg-grid-pattern absolute inset-0 w-full h-full opacity-6 pointer-events-none"
+          className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
           preserveAspectRatio="none"
           aria-hidden
         >
@@ -60,10 +58,10 @@ export default function Prl() {
         </svg>
       </div>
 
-      {/* Contenedor interior — padding igual al resto */}
+      {/* Contenedor */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-          {/* Izquierda: encabezado + CTA */}
+          {/* Columna izquierda */}
           <div className="md:col-span-1">
             <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-indigo-700 bg-indigo-50">
               Prevención de Riesgos Laborales
@@ -80,7 +78,8 @@ export default function Prl() {
               Diseñamos formación aplicada que integra normativa, gestión y cultura preventiva para hacer tu organización más segura, resiliente y productiva.
             </p>
 
-            <div className="mt-6 text-center md:text-left">
+            {/* Botones alineados como en el resto */}
+            <div className="mt-6 text-center sm:text-left">
               <a
                 href="#contacto"
                 className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg font-semibold shadow-lg transform transition duration-200 hover:-translate-y-0.5"
@@ -88,17 +87,17 @@ export default function Prl() {
                 Solicitar asesoría
                 <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden />
               </a>
-            <br/>
+              <br />
               <a
                 href="#programa-prl"
-                className="inline-block ml-3 mt-3 md:mt-0 text-indigo-600 hover:underline font-medium"
+                className="inline-block mt-3 text-indigo-600 hover:underline font-medium"
               >
                 Ver programa
               </a>
             </div>
           </div>
 
-          {/* Derecha: tarjetas */}
+          {/* Columna derecha */}
           <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-6">
             {cards.map((c, idx) => {
               const Icon = c.icon;
@@ -109,17 +108,16 @@ export default function Prl() {
                   role="article"
                   tabIndex={0}
                   aria-labelledby={`prl-card-title-${c.id}`}
-                  className="relative group bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-transform duration-300 transform hover:-translate-y-2 focus-within:shadow-xl focus-within:-translate-y-2 ring-0 focus:outline-none overflow-visible"
+                  className="relative group bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-transform duration-300 transform hover:-translate-y-2 focus-within:shadow-xl focus-within:-translate-y-2"
                 >
-                  {/* Numeral decorativo */}
+                  {/* Número */}
                   <div className="absolute -top-3 -left-3 text-xs text-white font-semibold px-3 py-1 rounded-full bg-indigo-600/90 z-20">
                     {idx + 1}
                   </div>
 
-                  {/* Icono en círculo con gradiente — tamaño seguro en móvil */}
+                  {/* Icono */}
                   <div
-                    className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-4 bg-gradient-to-tr ${c.accent} text-white z-10 ring-1 ring-white/20`}
-                    aria-hidden="true"
+                    className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-4 bg-gradient-to-tr ${c.accent} text-white ring-1 ring-white/20`}
                   >
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
@@ -137,13 +135,13 @@ export default function Prl() {
                     <a
                       href={`#${c.id}`}
                       className="text-sm font-medium text-indigo-600 hover:text-indigo-700 inline-flex items-center gap-2"
-                      aria-label={`Más sobre ${c.title}`}
                     >
                       Más info
                       <ArrowTopRightOnSquareIcon className="w-4 h-4" />
                     </a>
-
-                    <span className="ml-auto text-xs text-gray-400">Formación presencial / online</span>
+                    <span className="ml-auto text-xs text-gray-400">
+                      Formación presencial / online
+                    </span>
                   </div>
                 </article>
               );
