@@ -13,11 +13,19 @@ export default function Hero() {
         bg-gradient-to-b from-slate-900 via-slate-950 to-black
       "
     >
-      {/* Grid sutil + velos */}
-      <div className="absolute inset-0" aria-hidden>
-        <div className="absolute inset-0 bg-[url('/img/grid.svg')] opacity-[0.08]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/35 to-black/70" />
-      </div>
+     <svg
+  className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+  preserveAspectRatio="none"
+  aria-hidden
+>
+  <defs>
+    <pattern id="grid-hero" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 L0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.4" />
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grid-hero)" className="text-slate-400" />
+</svg>
+
 
       {/* Fondo con foto en mobile (no empuja layout) */}
       <div className="absolute inset-0 lg:hidden" aria-hidden>
