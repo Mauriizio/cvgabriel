@@ -44,14 +44,14 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             <li className="flex justify-center lg:justify-start items-center gap-2">
               <EnvelopeIcon className="w-5 h-5 text-indigo-600" />
-              <a href="mailto:correo@dominio.com" className="hover:underline">
-                correo@dominio.com
+              <a href="mailto:contacto@ghformacion.com" className="hover:underline">
+                contacto@ghformacion.com
               </a>
             </li>
             <li className="flex justify-center lg:justify-start items-center gap-2">
               <PhoneIcon className="w-5 h-5 text-indigo-600" />
-              <a href="tel:+34600111222" className="hover:underline">
-                +34 600 111 222
+              <a href="tel:+34643747521" className="hover:underline">
+                +34643747521
               </a>
             </li>
             <li className="flex justify-center lg:justify-start items-center gap-2">
@@ -83,12 +83,12 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-2 text-gray-900">Sígueme</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="https://www.linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <a href="https://www.linkedin.com/in/gabriel-hern%C3%A1ndez-zambrano/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="hover:underline">
                 LinkedIn
               </a>
             </li>
             <li>
-              <a href="https://wa.me/34600111222" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <a href="https://wa.me/34643747521" target="_blank" rel="noopener noreferrer" className="hover:underline">
                 WhatsApp
               </a>
             </li>

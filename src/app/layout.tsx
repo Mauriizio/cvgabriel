@@ -157,16 +157,11 @@ export default function RootLayout({
         {children}
 
         {/* JSON-LD: puedes moverlo a un /app/head.tsx si prefieres */}
-        <script
-          type="application/ld+json"
-          // @ts-expect-error: JSON
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          // @ts-expect-error: JSON
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-        />
+       <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+/>
+
       </body>
     </html>
   );
