@@ -14,7 +14,8 @@ export default function Contacto() {
   const ACCESS_KEY = "ad2da3dd-1b71-4b09-aa26-0f08cd18eb66";
 
   // Enlaces directos
-  const WHATSAPP_NUMBER = "34643747521"; // sin + ni espacios
+  const WHATSAPP_NUMBER = "34643747521"; 
+  const WHATSAPP_GROUP = "https://chat.whatsapp.com/BH9kHXmnpDw6tmAOhY5AP5"
   const LINKEDIN_URL = "https://www.linkedin.com/in/gabriel-hern%C3%A1ndez-zambrano?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ";
 
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -136,6 +137,15 @@ export default function Contacto() {
               >
                 <ChatBubbleLeftRightIcon className="w-5 h-5" aria-hidden />
                 WhatsApp
+              </a>
+              <a
+                href={WHATSAPP_GROUP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-lg font-semibold transition-transform hover:-translate-y-0.5"
+              >
+                <ChatBubbleLeftRightIcon className="w-5 h-5" aria-hidden />
+               Unete al Grupo de WhatsApp
               </a>
               <a
                 href={LINKEDIN_URL}
