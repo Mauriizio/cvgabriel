@@ -10,14 +10,20 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function Contacto() {
-  // ⚠️ Pega tu ID real de Formspree: https://formspree.io/f/<TU_ID>
-  const FORMSPREE_ID = "TU_ID_AQUI"; // ej: "abcdwxyz"
+  // Web3Forms
+  const ACCESS_KEY = "ad2da3dd-1b71-4b09-aa26-0f08cd18eb66";
 
-  // Opcional: enlaces directos
-  const WHATSAPP_NUMBER = "56912345678"; // sin + ni espacios
-  const LINKEDIN_URL = "https://www.linkedin.com/in/tu-perfil/";
+  // Enlaces directos
+  const WHATSAPP_NUMBER = "34643747521"; // sin + ni espacios
+  const LINKEDIN_URL = "https://www.linkedin.com/in/gabriel-hern%C3%A1ndez-zambrano?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ";
 
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  // Campos controlados (evita el warning de React)
+  const [nombre, setNombre] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [asunto, setAsunto] = useState<string>("");
+  const [mensaje, setMensaje] = useState<string>("");
 
   const waText = encodeURIComponent(
     "Hola Gabriel, me interesa una consulta para diseñar mi plan de formación / proyecto social."
@@ -26,26 +32,42 @@ export default function Contacto() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
+    const formEl = e.currentTarget;
 
-    // Honeypot (Formspree sugiere _gotcha)
-    if ((data.get("_gotcha") as string) !== "") return;
+    // Construimos el payload a mano para evitar valores undefined
+    const data = new FormData();
+    data.append("access_key", ACCESS_KEY);
+    data.append("subject", "Nueva consulta desde el sitio web");
+    data.append("from_name", "Sitio Web – Contacto");
+    data.append("nombre", nombre);
+    data.append("email", email);
+    data.append("asunto", asunto);
+    data.append("mensaje", mensaje);
+    // Honeypot vacío
+    data.append("botcheck", "");
 
     setStatus("loading");
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { Accept: "application/json" },
         body: data,
       });
-      if (res.ok) {
+      const json = await res.json();
+
+      if (json?.success) {
         setStatus("success");
-        form.reset();
+        // Limpiamos el formulario controlado
+        setNombre("");
+        setEmail("");
+        setAsunto("");
+        setMensaje("");
+        formEl.reset(); // opcional, por si tienes más campos no controlados
       } else {
+        console.error("Web3Forms error:", json);
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      console.error(err);
       setStatus("error");
     }
   }
@@ -129,36 +151,37 @@ export default function Contacto() {
               <div className="mt-4 space-y-2 text-sm text-gray-700">
                 <div className="flex items-center justify-center sm:justify-start gap-2">
                   <EnvelopeIcon className="w-5 h-5 text-indigo-600" />
-                  <a href="mailto:correo@dominio.com" className="hover:underline">
-                    correo@dominio.com
+                  <a href="mailto:contacto@ghformacion.com" className="hover:underline">
+                    contacto@ghformacion.com
                   </a>
                 </div>
                 <div className="flex items-center justify-center sm:justify-start gap-2">
                   <PhoneIcon className="w-5 h-5 text-indigo-600" />
-                  <a href="tel:+34600111222" className="hover:underline">
-                    +34 600 111 222
+                  <a href="tel:+34643747521" className="hover:underline">
+                    +34643747521
                   </a>
                 </div>
               </div>
             </div>
 
             <div className="mt-6 text-xs text-gray-500">
-              Respondo usualmente en 24–48 h laborales.
+              Respondo usualmente en 24 h laborales.
             </div>
           </aside>
 
-          {/* Formulario (Formspree) */}
+          {/* Formulario (Web3Forms) */}
           <div className="lg:col-span-2">
             <form
               onSubmit={onSubmit}
               className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
               aria-describedby="contacto-ayuda"
             >
+              {/* Hidden requeridos para Web3Forms */}
+              <input type="hidden" name="access_key" value={ACCESS_KEY} />
+              <input type="hidden" name="subject" value="Nueva consulta desde el sitio web" />
+              <input type="hidden" name="from_name" value="Sitio Web – Contacto" />
               {/* Honeypot */}
-              <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
-
-              {/* Opcionales de Formspree */}
-              <input type="hidden" name="_subject" value="Nueva consulta desde el sitio web" />
+              <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} />
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -170,6 +193,8 @@ export default function Contacto() {
                     name="nombre"
                     type="text"
                     required
+                    value={nombre}
+                    onChange={(e) => setNombre(e.target.value)}
                     className="mt-1 block w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
                     placeholder="Tu nombre"
                   />
@@ -184,8 +209,10 @@ export default function Contacto() {
                     name="email"
                     type="email"
                     required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="mt-1 block w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
-                    placeholder="tucorreo@dominio.com"
+                    placeholder="contacto@ghformacion.com"
                   />
                 </div>
 
@@ -198,6 +225,8 @@ export default function Contacto() {
                     name="asunto"
                     type="text"
                     required
+                    value={asunto}
+                    onChange={(e) => setAsunto(e.target.value)}
                     className="mt-1 block w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
                     placeholder="Ej: Consulta sobre taller PRL / programa de competencias"
                   />
@@ -212,6 +241,8 @@ export default function Contacto() {
                     name="mensaje"
                     rows={5}
                     required
+                    value={mensaje}
+                    onChange={(e) => setMensaje(e.target.value)}
                     className="mt-1 block w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
                     placeholder="Cuéntame un poco sobre tus necesidades…"
                   />
@@ -226,7 +257,7 @@ export default function Contacto() {
               <div className="mt-6 flex flex-wrap items-center justify-center sm:justify-start gap-3">
                 <button
                   type="submit"
-                  disabled={status === "loading" || FORMSPREE_ID === "TU_ID_AQUI"}
+                  disabled={status === "loading"}
                   className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-transform hover:-translate-y-0.5 disabled:opacity-60"
                 >
                   {status === "loading" ? "Enviando…" : "Enviar mensaje"}
@@ -242,18 +273,13 @@ export default function Contacto() {
                     Hubo un problema. Intenta nuevamente en unos minutos.
                   </span>
                 )}
-                {FORMSPREE_ID === "TU_ID_AQUI" && (
-                  <span className="text-xs text-amber-600">
-                    Reemplazar <strong>FORMSPREE_ID</strong> por  real.
-                  </span>
-                )}
               </div>
             </form>
           </div>
         </div>
       </div>
 
-      {/* JSON-LD: ContactPoint básico */}
+      {/* JSON-LD opcional */}
       {/* <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -267,7 +293,7 @@ export default function Contacto() {
                 "@type": "ContactPoint",
                 contactType: "customer support",
                 email: "correo@dominio.com",
-                telephone: "+34-600-111-222",
+                telephone: "+34643747521",
                 areaServed: "ES",
                 availableLanguage: ["es", "en"],
               },
