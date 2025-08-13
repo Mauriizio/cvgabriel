@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     locale: "es_ES",
     images: [
       {
-        url: "/img/og-hero.jpg", // TODO: crea una imagen 1200x630
+        url: "/public/logo.jpg", // TODO: crea una imagen 1200x630
         width: 1200,
         height: 630,
         alt: "Gabriel Hernández — Formación y PRL",
@@ -81,12 +81,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icons/icon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: "/logo.jpg" },
+      { url: "/logo.jpg", sizes: "32x32", type: "image/jpg" },
+      { url: "/logo.jpg", sizes: "192x192", type: "image/jpg" },
+      { url: "/logo.jpg", sizes: "512x512", type: "image/jpg" },
     ],
-    shortcut: ["/favicon.ico"],
+    shortcut: ["/logo.jpg"],
     apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
   },
   robots: {
