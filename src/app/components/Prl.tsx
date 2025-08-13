@@ -5,6 +5,7 @@ import {
   UsersIcon,
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function Prl() {
   const cards = [
@@ -80,20 +81,16 @@ export default function Prl() {
 
             {/* Botones alineados como en el resto */}
             <div className="mt-6 text-center sm:text-left">
-              <a
-                href="#contacto"
-                className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg font-semibold shadow-lg transform transition duration-200 hover:-translate-y-0.5"
-              >
-                Solicitar asesoría
-                <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden />
-              </a>
+             <Link
+  href="/contacto"
+  className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg font-semibold shadow-lg transform transition duration-200 hover:-translate-y-0.5"
+>
+  Solicitar asesoría
+  <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden />
+</Link>
               <br />
-              <a
-                href="#programa-prl"
-                className="inline-block mt-3 text-indigo-600 hover:underline font-medium"
-              >
-                Ver programa
-              </a>
+
+   
             </div>
           </div>
 
@@ -132,13 +129,7 @@ export default function Prl() {
                   <p className="text-sm text-gray-600 leading-relaxed mb-4">{c.desc}</p>
 
                   <div className="mt-auto flex items-center gap-3">
-                    <a
-                      href={`#${c.id}`}
-                      className="text-sm font-medium text-indigo-600 hover:text-indigo-700 inline-flex items-center gap-2"
-                    >
-                      Más info
-                      <ArrowTopRightOnSquareIcon className="w-4 h-4" />
-                    </a>
+                    
                     <span className="ml-auto text-xs text-gray-400">
                       Formación presencial / online
                     </span>

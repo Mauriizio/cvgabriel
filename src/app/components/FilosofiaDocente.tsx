@@ -6,6 +6,8 @@ import {
   HeartIcon,
   ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
+
 
 export default function FilosofiaDocente() {
   const principios = [
@@ -88,18 +90,13 @@ export default function FilosofiaDocente() {
             </p>
 
             <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:gap-4">
-              <a
-                href="#contacto"
-                className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-transform transform hover:-translate-y-0.5 shadow"
-              >
-                Consultar propuesta docente
-              </a>
-              <a
-                href="#metodologia"
-                className="mt-3 sm:mt-0 inline-flex items-center justify-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium hover:underline"
-              >
-                Ver metodología
-              </a>
+              <Link
+  href="/contacto"
+  className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg font-semibold shadow-lg transform transition duration-200 hover:-translate-y-0.5"
+>
+    Consultar propuesta
+  <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden />
+</Link>
             </div>
           </div>
 
@@ -135,17 +132,8 @@ export default function FilosofiaDocente() {
 
                   <p className="text-sm text-gray-600 leading-relaxed mb-4">{p.description}</p>
 
-                  <div className="mt-auto flex items-center gap-3">
-                    <a
-                      href={`#${p.id}`}
-                      className="text-sm font-medium text-indigo-600 hover:text-indigo-700 inline-flex items-center gap-2"
-                      aria-label={`Más sobre ${p.title}`}
-                    >
-                      Más información
-                      <ArrowTopRightOnSquareIcon className="w-4 h-4" />
-                    </a>
-
-                    <span className="ml-auto text-xs text-gray-400">Formación aplicada</span>
+                  <div className="mt-auto flex items-center gap-2">
+                    <span className="text-xs text-gray-400 items-center">Formación aplicada</span>
                   </div>
                 </article>
               );

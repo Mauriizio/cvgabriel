@@ -1,5 +1,7 @@
 // src/app/components/CompetenciasDigitales.tsx
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import {
   ComputerDesktopIcon,
   LockClosedIcon,
@@ -112,12 +114,13 @@ export default function CompetenciasDigitales() {
 
             {/* CTA: centrado en mobile, izquierda desde sm */}
             <div className="mt-6 text-center sm:text-left">
-              <a
-                href="#contacto"
-                className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-transform hover:-translate-y-0.5 shadow"
-              >
-                Consultar cursos y capacitaciones
-              </a>
+              <Link
+  href="/contacto"
+  className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg font-semibold shadow-lg transform transition duration-200 hover:-translate-y-0.5"
+>
+  Solicitar cursos disponibles
+  <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden />
+</Link>
             </div>
           </div>
 

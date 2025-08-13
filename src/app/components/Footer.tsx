@@ -16,7 +16,7 @@ export default function Footer() {
       {/* Logo watermark (sutil en mobile) */}
       <div className="absolute inset-0 opacity-[0.04] sm:opacity-10 flex items-center justify-center pointer-events-none">
         <Image
-          src="/img/logo2.png"
+          src="/logo.jpg"
           alt=""
           width={500}
           height={500}
@@ -29,7 +29,7 @@ export default function Footer() {
         {/* Logo arriba SOLO en mobile */}
         <div className="block lg:hidden text-center mb-2">
           <Image
-            src="/img/logo2.png"
+            src="/logo.jpg"
             alt="Logo Gabriel Hernández"
             width={160}
             height={160}
@@ -103,7 +103,7 @@ export default function Footer() {
         {/* Logo + descripción SOLO en desktop */}
         <div className="hidden lg:block">
           <Image
-            src="/img/logo2.png"
+            src="/logo.jpg"
             alt="Logo Gabriel Hernández"
             width={140}
             height={140}

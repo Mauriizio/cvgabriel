@@ -1,11 +1,13 @@
 // src/app/components/Bienvenidos.tsx
 import Image from "next/image";
+import Link from "next/link";
 import {
   AcademicCapIcon,
   ShieldCheckIcon,
   UsersIcon,
   ComputerDesktopIcon,
 } from "@heroicons/react/24/outline";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 
 export default function Bienvenidos() {
   const especializaciones = [
@@ -62,14 +64,15 @@ export default function Bienvenidos() {
             </p>
 
             <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:gap-4">
+              <Link
+  href="/contacto"
+  className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg font-semibold shadow-lg transform transition duration-200 hover:-translate-y-0.5"
+>
+  Agenda una consulta
+  <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden />
+</Link>
               <a
-                href="#contacto"
-                className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-transform transform hover:-translate-y-0.5 shadow"
-              >
-                Agenda una consulta
-              </a>
-              <a
-                href="#programas"
+                href="#servicios"
                 className="mt-3 sm:mt-0 inline-flex items-center justify-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium hover:underline"
               >
                 Ver programas y talleres

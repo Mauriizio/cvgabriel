@@ -8,6 +8,8 @@ import {
   BriefcaseIcon,
   CheckBadgeIcon,
 } from "@heroicons/react/24/outline";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 export default function Servicios() {
   const oferta = [
@@ -161,12 +163,13 @@ export default function Servicios() {
 
             {/* CTA */}
             <div className="mt-6">
-              <a
-                href="#contacto"
-                className="inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-transform hover:-translate-y-0.5"
-              >
-                Solicitar propuesta
-              </a>
+             <Link
+  href="/contacto"
+  className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg font-semibold shadow-lg transform transition duration-200 hover:-translate-y-0.5"
+>
+  Solicitar propuesta
+  <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden />
+</Link>
             </div>
           </article>
 
@@ -196,12 +199,17 @@ export default function Servicios() {
             </ul>
 
             <div className="mt-6">
-              <a
-                href="#contacto"
-                className="inline-flex items-center justify-center gap-2 border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white px-5 py-3 rounded-lg text-sm font-semibold transition-transform hover:-translate-y-0.5"
-              >
-                Agendar consulta
-              </a>
+
+
+
+              <Link
+  href="/contacto"
+  className="inline-flex items-center justify-center gap-2 border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white px-5 py-3 rounded-lg text-sm font-semibold transition-transform hover:-translate-y-0.5"
+>
+  Agendar consulta
+  <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden />
+</Link>
+              
             </div>
           </aside>
         </div>
