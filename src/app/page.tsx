@@ -6,7 +6,8 @@ import Servicios from "./components/Servicios";
 import FormacionProfesional from "./components/FormacionProfesional";
 import Prl from "./components/Prl";
 import CompetenciasDigitales from "./components/CompetenciasDigitales";
-
+import CarouselAcademico from "./components/CarouselAcademico";
+import QrCard from "./components/QrCard"; 
 
 export default function Home() {
   return (
@@ -15,9 +16,11 @@ export default function Home() {
       <Hero />
       <Bienvenidos />
       <Servicios />
+      <CarouselAcademico profileUrl="https://ghformacion.com" />
       <FormacionProfesional />
       <Prl />
       <CompetenciasDigitales />
+      <QrCard profileUrl="https://ghformacion.com" />
     
     </main>
   );
