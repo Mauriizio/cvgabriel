@@ -159,3 +159,20 @@ figure figcaption {
 .section-card {
   box-shadow: 0 8px 20px rgba(16,24,40,0.06);
 }
+
+/* --- Fading utilities para imágenes en hero --- */
+.mask-fade-up {
+  /* de abajo (transparente) hacia arriba (opaco) */
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.6) 14%, black 42%);
+          mask-image: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.6) 14%, black 42%);
+}
+
+/* overlay sutil inferior para un blend más natural */
+.hero-photo-overlay::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0; /* solo abajo */
+  height: 26%;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+  pointer-events: none;
+}

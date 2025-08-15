@@ -39,7 +39,7 @@ export default function Prl() {
     <section
       id="prl"
       aria-labelledby="prl-title"
-      className="relative bg-gray-50 py-12 sm:py-20 lg:py-28 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
+      className="relative bg-gray-200 py-12 sm:py-20 lg:py-28 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
     >
       {/* Fondo decorativo + cuadrícula */}
       <div className="absolute inset-0 pointer-events-none">

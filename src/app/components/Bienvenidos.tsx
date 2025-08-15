@@ -57,12 +57,10 @@ export default function Bienvenidos() {
             </h2>
 
             <p className="mt-4 text-gray-700 leading-relaxed">
-              Soy <strong>Gabriel Acacio Hernández</strong>, formador y docente con trayectoria en Educación,
-              Prevención de Riesgos, Trabajo Social y Competencias Digitales. Mi enfoque combina
-              <span className="font-semibold text-gray-900"> rigor académico</span> con metodologías prácticas que generan
-              resultados medibles en entornos laborales y comunitarios.
+              Soy <strong> Gabriel Hernández Zambrano</strong>,formador y docente con trayectoria en Prevención de Riesgos Laborales, Competencias Digitales, Inteligencia Artificial, Logística, Gestión y Organización de Almacenes, Trabajo Social y Operaciones Auxiliares de Servicios Administrativos y Generales.
+              Mi enfoque combina rigor académico con metodologías prácticas que generan resultados medibles en entornos laborales y comunitarios.
             </p>
-
+          
             <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:gap-4">
               <Link
   href="/contacto"

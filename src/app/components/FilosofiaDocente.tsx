@@ -49,7 +49,7 @@ export default function FilosofiaDocente() {
     <section
       id="filosofia-docente"
       aria-labelledby="filosofia-title"
-      className="relative bg-white py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
+      className="relative bg-gray-200 py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-gray-800 overflow-hidden"
     >
       {/* Fondos decorativos + rejilla sutil */}
       <div className="absolute inset-0 pointer-events-none">
@@ -71,7 +71,7 @@ export default function FilosofiaDocente() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-10 items-start">
           {/* Columna izquierda: título + intro + CTA */}
           <div className="md:col-span-1">
             <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-indigo-700 bg-indigo-50">
@@ -82,11 +82,22 @@ export default function FilosofiaDocente() {
               id="filosofia-title"
               className="mt-4 text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight"
             >
-              Mi Filosofía: <span className="text-indigo-600">Aprender para Transformar</span>
+              Mi Filosofía: <span className="text-indigo-600">Aprender, hacer, trascender</span>
             </h2>
 
             <p className="mt-4 text-gray-700 leading-relaxed">
-              Un enfoque integral que combina rigor académico, herramientas digitales y cuidado humano para formar profesionales competentes y responsables.
+              El aprendizaje no es un fin en sí mismo, sino el punto de partida para la acción y la transformación personal, organizacional y social. “Aprender, hacer, trascender” también corresponde a la necesidad de aportar a las metodologías ágiles; instrumento estos principios en tres pasos esenciales: 
+              a. Aprender: adquirir conocimiento sólido y relevante, con metodologías activas y actualizadas.
+ 
+b. Hacer: aplicar lo aprendido en contextos reales, desarrollando competencias prácticas y resolviendo problemas concretos, en definitiva, aprender haciendo.
+ 
+c. Trascender: ir más allá de la ejecución, generando impacto positivo, innovando y dejando huella en la comunidad y en el sector profesional, formación para la vida.
+ 
+Este enfoque se inspira en la visión de Simón Rodríguez, el Robinson de América, quien defendía una educación útil, ética y para la vida.
+También conecta con el espíritu del método japonés Shuhari, donde el aprendizaje verdadero culmina en la superación y la creación de algo nuevo.
+ 
+Enseñamos para que cada persona no solo aprenda, sino que actúe y trascienda.
+Porque el conocimiento cobra valor cuando se convierte en acción que transforma realidades.
             </p>
 
             <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:gap-4">

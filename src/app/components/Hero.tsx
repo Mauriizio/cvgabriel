@@ -3,6 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 
+type Logo = { src: string; alt: string };
+
+const logos: Logo[] = [
+  { src: "/img/cert.jpg", alt: "Castilla-La Mancha" },
+  { src: "/img/cert.webp", alt: "Union Europea" },
+  { src: "/img/log1.png", alt: "MinEduc" },
+  { src: "/img/log2.png", alt: "MinEco" },
+  // cambia las rutas por tus archivos reales
+];
+
 export default function Hero() {
   return (
     <section
@@ -10,24 +20,23 @@ export default function Hero() {
       role="banner"
       aria-labelledby="hero-title"
       className="
-        relative min-h-[100dvh] lg:h-[100dvh]
+        relative min-h-svh lg:h-svh
         overflow-hidden overflow-x-clip
         bg-gradient-to-b from-slate-900 via-slate-950 to-black
       "
     >
-     <svg
-  className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
-  preserveAspectRatio="none"
-  aria-hidden
->
-  <defs>
-    <pattern id="grid-hero" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M40 0 L0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.4" />
-    </pattern>
-  </defs>
-  <rect width="100%" height="100%" fill="url(#grid-hero)" className="text-slate-400" />
-</svg>
-
+      <svg
+        className="absolute inset-0 w-full h-full opacity-[0.06] pointer-events-none"
+        preserveAspectRatio="none"
+        aria-hidden
+      >
+        <defs>
+          <pattern id="grid-hero" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M40 0 L0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.4" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-hero)" className="text-slate-400" />
+      </svg>
 
       {/* Fondo con foto en mobile (no empuja layout) */}
       <div className="absolute inset-0 lg:hidden" aria-hidden>
@@ -38,7 +47,6 @@ export default function Hero() {
           sizes="100vw"
           className="
             object-cover
-            /* cara libre arriba, piernas hacia abajo */
             object-[50%_12%]
             opacity-90 pointer-events-none select-none
           "
@@ -61,7 +69,7 @@ export default function Hero() {
             lg:hidden
             flex h-full flex-col justify-end
             /* reserva visual para la cara sin crear scroll */
-            pt-[18vh] sm:pt-[16vh] md:pt-[14vh]
+            pt-[14vh] sm:pt-[15vh] md:pt-[14vh]
             pb-6
           "
         >
@@ -75,16 +83,30 @@ export default function Hero() {
             grid-cols-12 gap-10 xl:gap-16 content-center
           "
         >
-          {/* Foto a la izquierda, pegada abajo */}
-          <div className="relative col-span-5 h-[76vh] xl:h-[80vh] self-end">
+          {/* Foto a la izquierda con integración inferior */}
+          <div className="relative col-span-5 h-[76vh] xl:h-[80vh] self-end lg:mask-fade-up lg:hero-photo-overlay">
             <Image
               src="/img/perfil.png"
               alt="Gabriel A. Hernández — Experto en Formación Profesional"
               fill
               sizes="(max-width:1280px) 45vw, 40vw"
-              className="object-contain object-left-bottom pointer-events-none select-none"
+              className="
+                object-contain object-left-bottom
+                pointer-events-none select-none
+                lg:scale-[1.06] lg:origin-bottom-left
+                transition-transform
+              "
               priority
               quality={90}
+            />
+            {/* Overlay de degradado inferior para asegurar el “nacimiento” desde lo oscuro */}
+            <div
+              aria-hidden
+              className="
+                pointer-events-none absolute inset-x-0 bottom-0
+                h-[28%] bg-gradient-to-t
+                from-black via-black/30 to-transparent
+              "
             />
           </div>
 
@@ -100,8 +122,7 @@ export default function Hero() {
 
 /* ------------------ Bloque de texto reutilizable ------------------ */
 function HeroText({ align = "center" }: { align?: "center" | "left" }) {
-  const textAlign =
-    align === "left" ? "text-left lg:pr-2" : "text-center mx-auto";
+  const textAlign = align === "left" ? "text-left lg:pr-2" : "text-center mx-auto";
 
   return (
     <div className={`text-white ${textAlign} max-w-[700px]`}>
@@ -116,7 +137,6 @@ function HeroText({ align = "center" }: { align?: "center" | "left" }) {
         id="hero-title"
         className="
           font-extrabold leading-tight tracking-tight
-          /* clamp para que no tape la cara ni cree scroll en pantallas bajitas */
           text-[clamp(2rem,6vw,4.5rem)]
           lg:text-[clamp(2.75rem,3.5vw,4.5rem)]
         "
@@ -137,7 +157,9 @@ function HeroText({ align = "center" }: { align?: "center" | "left" }) {
           mx-auto lg:mx-0
         "
       >
-        Experto en Formación Profesional, Prevención de Riesgos Laborales, Trabajo Social y Competencias Digitales
+        Prevención de Riesgos Laborales, Competencias Digitales, Inteligencia Artificial,
+        Logística, Gestión y Organización de Almacenes, Trabajo Social y Operaciones Auxiliares
+        de Servicios Administrativos y Generales.
       </p>
 
       {/* Stats compactas (no empujar hacia abajo) */}
@@ -150,7 +172,7 @@ function HeroText({ align = "center" }: { align?: "center" | "left" }) {
       >
         {[
           { n: "20+", label: "Años" },
-          { n: "500+", label: "Formados" },
+          { n: "1500+", label: "Formados" },
           { n: "100%", label: "Satisfacción" },
         ].map((s) => (
           <div
@@ -180,17 +202,17 @@ function HeroText({ align = "center" }: { align?: "center" | "left" }) {
       <div
         className="
           mt-1
-          flex flex-col sm:flex-row gap-4
+          flex flex-row flex-wrap gap-4
           justify-center lg:justify-start items-center
         "
       >
         <Link
-  href="/contacto"
-  className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg font-semibold shadow-lg transform transition duration-200 hover:-translate-y-0.5"
->
-  Consulta gratuita
-  <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden />
-</Link>
+          href="/contacto"
+          className="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg font-semibold shadow-lg hover:shadow-indigo-600/30 transform transition duration-200 hover:-translate-y-0.5 hover:scale-[1.015]"
+        >
+          Consulta gratuita
+          <ArrowTopRightOnSquareIcon className="w-4 h-4" aria-hidden />
+        </Link>
         <a
           href="#servicios"
           className="
@@ -198,11 +220,42 @@ function HeroText({ align = "center" }: { align?: "center" | "left" }) {
             border-2 border-indigo-700 text-indigo-700
             hover:bg-indigo-700 hover:text-white
             px-6 py-3 rounded-lg font-semibold
-            transition-transform hover:-translate-y-0.5
+            transition-transform hover:-translate-y-0.5 
           "
         >
           Ver servicios
         </a>
+      </div>
+
+      {/* Logos con más aire y menor protagonismo que el CTA */}
+      <div
+        className="
+          mt-8 sm:mt-10
+          pt-3 sm:pt-4
+          border-t border-white/10
+          flex flex-row gap-3 sm:gap-4
+          justify-center lg:justify-start items-center text-xs
+        "
+      >
+        <p className="mb-0 whitespace-nowrap text-white/80">Certificado por:</p>
+
+        <ul className="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-6">
+          {logos.map((logo) => (
+            <li key={logo.src} className="opacity-90 hover:opacity-100 transition">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                // ~40% más grande que 128x64 ≈ 180x90
+                width={180}
+                height={90}
+                sizes="(max-width: 640px) 120px, (max-width: 1024px) 160px, 180px"
+                // antes: h-6 sm:h-7 → ~40% ↑: h-8 sm:h-9
+                className="h-8 sm:h-9 w-auto object-contain grayscale hover:grayscale-0"
+                priority={false}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
