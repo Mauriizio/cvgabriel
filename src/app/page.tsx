@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
       <Bienvenidos />
       <Servicios />
-      <CarouselAcademico profileUrl="https://ghformacion.com" />
+      <CarouselAcademico />
       <FormacionProfesional />
       <Prl />
       <CompetenciasDigitales />
