@@ -20,7 +20,7 @@ export default function Home() {
       <FormacionProfesional />
       <Prl />
       <CompetenciasDigitales />
-      <QrCard profileUrl="https://ghformacion.com" />
+      
     
     </main>
   );

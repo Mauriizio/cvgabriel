@@ -55,7 +55,6 @@ export default function CarouselAcademico() {
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 md:px-8">
         <header className="mb-4">
           <h2 id="carousel-title" className="text-2xl sm:text-3xl font-bold text-gray-900">
-            Servicios:
           </h2>
           <p className="text-sm text-gray-900/70 ">Desliza para explorar</p>
         </header>
