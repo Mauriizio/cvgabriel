@@ -7,7 +7,7 @@ import FormacionProfesional from "./components/FormacionProfesional";
 import Prl from "./components/Prl";
 import CompetenciasDigitales from "./components/CompetenciasDigitales";
 import CarouselAcademico from "./components/CarouselAcademico";
-import QrCard from "./components/QrCard"; 
+ 
 
 export default function Home() {
   return (

@@ -38,7 +38,7 @@ export default function Navigation() {
             </div>
             <div>
               <h1 className="text-gray-900 text-lg font-semibold leading-tight">Gabriel Hernández</h1>
-              <p className="text-blue-700 text-xs sm:text-sm font-medium">Experto en Formación Profesional <br/><span className=" text-xs font-semibold text-blue-700">  "Aprender, hacer, trascender"</span> </p>
+              <p className="text-blue-700 text-xs sm:text-sm font-medium">Experto en Formación Profesional <br/><span className=" text-xs font-semibold text-blue-700">  &quot;Aprender, hacer, trascender&quot;</span> </p>
             </div>
           </div>
 

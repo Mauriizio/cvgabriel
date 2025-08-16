@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
  * - Reemplaza las URLs de sameAs/og/twitter por las reales.
  * - Opcional: añade un /site.webmanifest si lo tienes.
  */
-const SITE_URL = "https://tudominio.com"; // TODO
+const SITE_URL = "https://ghformacion.com"; // TODO
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     locale: "es_ES",
     images: [
       {
-        url: "/public/logo.jpg", // TODO: crea una imagen 1200x630
+        url: "/logo.jpg", // TODO: crea una imagen 1200x630
         width: 1200,
         height: 630,
         alt: "Gabriel Hernández — Formación y PRL",
@@ -129,10 +129,10 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Gabriel Hernández",
   url: SITE_URL,
-  logo: `${SITE_URL}/img/logo2.png`,
+  logo: `${SITE_URL}/logo.jpg`,
   sameAs: [
-    "https://www.linkedin.com/in/tu-perfil", // TODO
-    "https://wa.me/XXXXXXXXXXX", // TODO
+    "https://www.linkedin.com/in/gabriel-hern%C3%A1ndez-zambrano?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", // TODO
+    "https://api.whatsapp.com/send/?phone=34643747521&text=%C2%A1Hola+Gabriel%21+Me+interesa+una+consulta+gratuita.&type=phone_number&app_absent=0", // TODO
     "https://www.instagram.com/tu-perfil", // TODO
   ],
 };
