@@ -176,3 +176,9 @@ figure figcaption {
   background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
   pointer-events: none;
 }
+
+
+/* Ocultar scrollbar horizontal en todos los navegadores */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+

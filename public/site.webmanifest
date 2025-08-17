@@ -1,0 +1,26 @@
+{
+  "name": "Gabriel Hernández — Formación y PRL",
+  "short_name": "GH Formación",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#264be6",
+  "description": "Programas, talleres y asesorías en Formación Profesional, PRL y Competencias Digitales.",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-64x64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

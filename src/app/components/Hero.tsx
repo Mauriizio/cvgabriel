@@ -239,23 +239,33 @@ function HeroText({ align = "center" }: { align?: "center" | "left" }) {
       >
         <p className="mb-0 whitespace-nowrap text-white/80">Certificado por:</p>
 
-        <ul className="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-6">
-          {logos.map((logo) => (
-            <li key={logo.src} className="opacity-90 hover:opacity-100 transition">
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                // ~40% más grande que 128x64 ≈ 180x90
-                width={180}
-                height={90}
-                sizes="(max-width: 640px) 120px, (max-width: 1024px) 160px, 180px"
-                // antes: h-6 sm:h-7 → ~40% ↑: h-8 sm:h-9
-                className="h-8 sm:h-9 w-auto object-contain grayscale hover:grayscale-0"
-                priority={false}
-              />
-            </li>
-          ))}
-        </ul>
+        <ul
+  className="
+    grid grid-cols-2 gap-4 justify-items-center
+    sm:flex sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6
+  "
+>
+  {logos.map((logo) => (
+    <li
+      key={logo.src}
+      className="opacity-90 hover:opacity-100 transition"
+    >
+      <Image
+        src={logo.src}
+        alt={logo.alt}
+        width={180}
+        height={90}
+        sizes="(max-width: 640px) 100px, (max-width: 1024px) 150px, 180px"
+        className="
+          h-6 w-auto object-contain sm:h-8 md:h-9
+          grayscale hover:grayscale-0
+        "
+        priority={false}
+      />
+    </li>
+  ))}
+</ul>
+
       </div>
     </div>
   );

@@ -16,13 +16,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-/**
- * ⚙️ IMPORTANTE:
- * - Cambia `https://tudominio.com` por tu dominio final (sin slash).
- * - Reemplaza las URLs de sameAs/og/twitter por las reales.
- * - Opcional: añade un /site.webmanifest si lo tienes.
- */
-const SITE_URL = "https://ghformacion.com"; // TODO
+const SITE_URL = "https://ghformacion.com"; 
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -51,6 +45,7 @@ export const metadata: Metadata = {
   category: "education",
   alternates: {
     canonical: "/",
+   
   },
   openGraph: {
     type: "website",
@@ -63,7 +58,7 @@ export const metadata: Metadata = {
     locale: "es_ES",
     images: [
       {
-        url: "/logo.jpg", // TODO: crea una imagen 1200x630
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Gabriel Hernández — Formación y PRL",
@@ -76,18 +71,17 @@ export const metadata: Metadata = {
       "Gabriel Hernández — Formación Profesional, PRL, Trabajo Social y Competencias Digitales",
     description:
       "Programas, talleres y asesorías en FP, PRL y Competencias Digitales.",
-    images: ["/img/og-hero.jpg"], // TODO
-    creator: "@tu_usuario", // TODO opcional
+    images: ["/og-image.png"], 
+    creator: "Maurizio Caballero", 
   },
   icons: {
     icon: [
-      { url: "/logo.jpg" },
-      { url: "/logo.jpg", sizes: "32x32", type: "image/jpg" },
-      { url: "/logo.jpg", sizes: "192x192", type: "image/jpg" },
-      { url: "/logo.jpg", sizes: "512x512", type: "image/jpg" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-64x64.png", sizes: "64x64", type: "image/png" },
     ],
-    shortcut: ["/logo.jpg"],
-    apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180" }],
+    apple: [{ url: "/favicon-180x180.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
   },
   robots: {
     index: true,
@@ -100,17 +94,17 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // Si tendrás un manifest:
-  // manifest: "/site.webmanifest",
+
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#000000" },
   ],
   verification: {
-    // Añade estos cuando los tengas:
-    // google: "TU_TOKEN_DE_VERIFICACION",
-    // other: { bing: "TU_TOKEN_BING" }
+    // google: "TOKEN_GOOGLE", 
+    // other: { bing: "TOKEN_BING" },
   },
+
+  manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
@@ -120,10 +114,7 @@ export const viewport: Viewport = {
   colorScheme: "light dark",
 };
 
-/**
- * JSON-LD de Organization + WebSite
- * Colocado en layout para toda la app. Reemplaza sameAs con tus redes reales.
- */
+/** ========= JSON-LD ========= */
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -131,11 +122,12 @@ const organizationJsonLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo.jpg`,
   sameAs: [
-    "https://www.linkedin.com/in/gabriel-hern%C3%A1ndez-zambrano?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", // TODO
-    "https://api.whatsapp.com/send/?phone=34643747521&text=%C2%A1Hola+Gabriel%21+Me+interesa+una+consulta+gratuita.&type=phone_number&app_absent=0", // TODO
-    "https://www.instagram.com/tu-perfil", // TODO
+    "https://www.linkedin.com/in/gabriel-hern%C3%A1ndez-zambrano",
+    "https://wa.me/34643747521",
+    "https://www.instagram.com/gh.formacion",
   ],
 };
+
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -148,6 +140,19 @@ const websiteJsonLd = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Gabriel Hernández",
+  url: SITE_URL,
+  jobTitle: "Docente y Consultor en Formación Profesional y PRL",
+  sameAs: [
+    "https://www.linkedin.com/in/gabriel-hern%C3%A1ndez-zambrano",
+    "https://wa.me/34643747521",
+    "https://www.instagram.com/gh.formacion",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -157,14 +162,26 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-slate-900`}
       >
         <Navigation />
-       <main>{children}</main>
+        <main>{children}</main>
 
-        {/* JSON-LD: puedes moverlo a un /app/head.tsx si prefieres */}
-       <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-/>
-<Footer />
+        {/* JSON-LD */}
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+
+        <Footer />
       </body>
     </html>
   );

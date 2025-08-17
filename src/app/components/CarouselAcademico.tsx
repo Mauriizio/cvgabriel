@@ -26,17 +26,17 @@ export default function CarouselAcademico() {
 
   const items: Item[] = useMemo(
     () => [
-      { title: "Formación Profesional", icon: <AcademicCapIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
-      { title: "Prevención de Riesgos Laborales", icon: <ShieldCheckIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
-      { title: "Competencias Digitales", icon: <ComputerDesktopIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
-      { title: "Inteligencia Artificial", icon: <CpuChipIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
-      { title: "Logística", icon: <CubeIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
-      { title: "Gestión y Organización de Almacenes", icon: <ArchiveBoxIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
-      { title: "Trabajo Social", icon: <UsersIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
-      { title: "Operaciones Auxiliares Adm. y Generales", icon: <ClipboardDocumentListIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
-      { title: "Transporte de mercancías por carretera", icon: <TruckIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
-      { title: "Tacógrafo digital inteligente", icon: <Cog6ToothIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
-      { title: "Carga y estiba", icon: <RectangleStackIcon className="w-16 h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Formación Profesional", icon: <AcademicCapIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Prevención de Riesgos Laborales", icon: <ShieldCheckIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Competencias Digitales", icon: <ComputerDesktopIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Inteligencia Artificial", icon: <CpuChipIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Logística", icon: <CubeIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Gestión y Organización de Almacenes", icon: <ArchiveBoxIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Trabajo Social", icon: <UsersIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Operaciones Auxiliares Adm. y Generales", icon: <ClipboardDocumentListIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Transporte de mercancías por carretera", icon: <TruckIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Tacógrafo digital inteligente", icon: <Cog6ToothIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
+      { title: "Carga y estiba", icon: <RectangleStackIcon className="w-12 h-12 sm:w-16 sm:h-16 text-indigo-600 mx-auto mb-4" /> },
     ],
     []
   );
@@ -51,21 +51,18 @@ export default function CarouselAcademico() {
   };
 
   return (
-    <section aria-labelledby="carousel-title" className="relative py-2 bg-gray-200">
+    <section aria-labelledby="carousel-title" className="relative bg-gray-200">
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 md:px-8">
-        <header className="mb-4">
-          <h2 id="carousel-title" className="text-2xl sm:text-3xl font-bold text-gray-900">
-          </h2>
-          <p className="text-sm text-gray-900/70 ">Desliza para explorar</p>
-        </header>
 
+        {/* Carrusel */}
         <div
           ref={trackRef}
           className="
             relative
             snap-x snap-mandatory
             overflow-x-auto overflow-y-visible
-            scrollbar-none
+            no-scrollbar
+            overscroll-x-contain
             -mx-8 px-8
           "
           role="region"
@@ -78,10 +75,10 @@ export default function CarouselAcademico() {
                 data-card
                 className="
                   snap-start
-                  min-w-[260px] sm:min-w-[300px] md:min-w-[340px]
-                  bg-white/5
+                  min-w-[220px] sm:min-w-[260px] md:min-w-[300px]
+                  bg-white/50
                   border border-indigo-600/30
-                  rounded-2xl p-6
+                  rounded-2xl p-4 sm:p-6
                   text-center
                   backdrop-blur-sm
                   flex flex-col items-center justify-center
@@ -89,7 +86,7 @@ export default function CarouselAcademico() {
                 "
               >
                 {it.icon}
-                <h3 className="mt-1 text-xl sm:text-2xl font-bold text-indigo-600">
+                <h3 className="mt-1 text-base sm:text-xl font-bold text-indigo-600">
                   {it.title}
                 </h3>
               </article>
